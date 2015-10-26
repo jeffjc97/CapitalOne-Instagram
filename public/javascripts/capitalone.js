@@ -80,7 +80,7 @@ function getImages(param) {
 							contentType: 'application/json',
 							data: {"text":text},
 							success: function(returned3) {
-								console.log(returned3);
+								// console.log(returned3);
 								// inserting the information into the correct places
 								clone = $('.photo-clone').clone();
 								clone.removeClass('photo-clone');
