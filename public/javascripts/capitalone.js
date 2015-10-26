@@ -2,15 +2,17 @@ var access_token = "2250114038.1e58aa4.6cd4987dbf244c41b7ddaedc48a186d7";
 var tag_url = "https://api.instagram.com/v1/tags/capitalone/media/recent?access_token=" + access_token;
 var next;
 
+// url to query instagram for user information
 function getUserUrl(id) {
 	return "https://api.instagram.com/v1/users/" + id + "/?access_token=" + access_token;
 }
 
-// from stackoverflow
+// from stackoverflow, formatting 1000 into 1k
 function kFormatter(num) {
     return num > 999 ? (num/1000).toFixed(1) + 'k' : num
 }
 
+// formatting the sentiment depending on the value calculated
 function sentimentFormatter(clone, score) {
 	var sent_div = clone.find('.hover-sentiment');
 	if(score < -5) {
@@ -36,8 +38,10 @@ function sentimentFormatter(clone, score) {
 
 }
 
+// the function that does it all
 function getImages(param) {
 	var url = tag_url;
+	// if they load in more photos, we simply call the function with the added parameter
 	if (param != 0) {
 		console.log("param in next call", param);
 		var param = "&max_tag_id=" + param;
@@ -52,10 +56,9 @@ function getImages(param) {
 		type: 'GET',
 		dataType: 'jsonp',
 		success: function(returned) {
-			console.log(returned.data);
-			// console.log(returned.data[returned.data.length -1].id);
+			// console.log(returned.data);
 			next = returned.pagination.next_max_id;
-			console.log("next", next);
+			// console.log("next", next);
 			returned.data.forEach(function(entry) {
 				$.ajax({
 					url: getUserUrl(entry.user.id),
@@ -68,9 +71,9 @@ function getImages(param) {
 							type: 'GET',
 							dataType: 'json',
 							contentType: 'application/json',
-							// data: JSON.stringify({'text': text}),
 							data: {"text":text},
 							success: function(returned3) {
+								// inserting the information into the correct places
 								clone = $('.photo-clone').clone();
 								clone.removeClass('photo-clone');
 								clone.find('.image').attr('src', entry.images.standard_resolution.url);
@@ -94,6 +97,7 @@ function getImages(param) {
 								var followed_by = kFormatter(returned2.data.counts.followed_by);
 								clone.find('.user-info').text(media + " posts | " + followed_by + " followers | " + follows + " following");
 
+								//adding hover transitions
 								clone.hover(function() {
 									$(this).find('.hover-info').fadeIn(250);
 									$(this).find('.hover-sentiment').fadeIn(250);
@@ -134,6 +138,7 @@ function getImages(param) {
 $(document ).ready(function() {	
 	getImages(0);
 
+	// set up the buttons
 	$('.load-more').click(function() {
 		getImages(next);
 	});

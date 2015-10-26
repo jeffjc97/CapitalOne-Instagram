@@ -5,15 +5,18 @@ var num_positive = 0;
 var num_negative = 0;
 var num_neutral = 0;
 
+// url to query instagram for user information
 function getUserUrl(id) {
 	return "https://api.instagram.com/v1/users/" + id + "/?access_token=" + access_token;
 }
 
-// from stackoverflow
+// from stackoverflow, formatting 1000 into 1k
 function kFormatter(num) {
     return num > 999 ? (num/1000).toFixed(1) + 'k' : num;
 }
 
+// formatting the sentiment depending on the value calculated
+// also keeps a running tally of the number of positive/negative posts
 function sentimentFormatter(clone, score) {
 	var sent_div = clone.find('.sentiment');
 	sent_div.text(score);
@@ -41,8 +44,10 @@ function sentimentFormatter(clone, score) {
 
 }
 
+// the function that does it all
 function getInfo(param) {
 	var url = tag_url;
+	// if they load in more photos, we simply call the function with the added parameter
 	if (param != 0) {
 		console.log("param in next call", param);
 		var param = "&max_tag_id=" + param;
@@ -79,6 +84,7 @@ function getInfo(param) {
 							// data: JSON.stringify({'text': text}),
 							data: {"text":text},
 							success: function(returned3) {
+								// inserting the information into the correct places
 								clone = $('.row-clone').clone();
 								clone.removeClass('row-clone');
 								clone.find('.username').text(entry.user.username);
@@ -134,6 +140,7 @@ function getInfo(param) {
 $(document ).ready(function() {
 	getInfo(0);
 
+	// set up the buttons
 	$('.load-more').click(function() {
 		getInfo(next);
 	});
