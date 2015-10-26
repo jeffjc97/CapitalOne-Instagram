@@ -1,0 +1,37 @@
+doctype html
+
+html.
+	<head>
+		<title>#CapitalOne</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/about.css">
+		<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="../javascripts/about.js"></script>
+	</head>
+	<body>
+
+		<div class="title-wrapper"><img class="title" src="../images/title.png"></img></div>
+
+		<div class="title-info">
+			Analyzing #CapitalOne Instagram Data
+		</div>
+		<div class="subtitle-info">
+			Jeffrey Chang
+		</div>
+		<div class="info">
+			<br>
+			In this project, I used the Instagram API to find all recent posts tagged with #CapitalOne. I organized the data in two different ways - with images and with a table.
+			<br><br>
+			In the image view, the most recent images are laid out in a grid. By hovering over the images, a small description of the post can be seen, including the username, date, caption, and number of likes. By clicking on the username, you are redirected to the user's instagram profile. Furthermore, by hovering over the user's image, you can see the number of posts, followers, and people they are following. Lastly, a general sentiment of the post caption can be seen on the top left corner, which was calculated using Sentiment, a Node.js module.
+			<br><br>
+			In the table view, the data is laid out in a simpler manner. All the data is still accessible, and a tally of the total number of positive, neutral, and negative posts is kept. A more specific description of the sentiment calculation is also shown.
+			<br><br>
+			Learn more about me at <a href="http://www.jeffreyjchang.com">my personal website</a>.
+		</div>
+
+		<button type="button" class="picture-view btn btn-default">View Pictures</button>
+		<button type="button" class="text-view btn btn-default">View Table</button>
+
+	</body>

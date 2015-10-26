@@ -1,0 +1,138 @@
+body{
+    min-width:1000px; /* suppose you want minimun width of 1000px */
+    width: auto !important;  /* Firefox will set width as auto */
+    width:1000px; 
+}
+.photo-container {
+	width: 80%;
+	margin: auto;
+}
+.photo {
+	width: 25%;
+	float: left;
+	margin-bottom: 2.5%;
+}
+.photo .image {
+	display: block;
+	margin:	auto;
+	max-width: 90%;
+	max-height: 90%;
+}
+.hover-info {
+	font-family: 'Titillium Web', sans-serif;
+    max-width: 90%;
+    display: none;
+    margin: auto;
+    position: relative;
+    padding: 2%;
+    /*margin-top: -302%;*/
+    margin-top: -100px;
+    height: 100px;
+    color: white;
+    background-color: #1E3F6F;
+    opacity: 0.9;
+}
+.hover-info .user-image {
+	border-radius: 50%;
+	width: 12%;
+
+}
+.hover-info .user-image:hover {
+	opacity: 0.5;
+}
+.hover-info .username {
+	margin-left: 15%;
+    margin-top: -13%;
+    margin-bottom: 4%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.hover-info .user-link {
+	text-decoration: none;
+	color: white;
+}
+.hover-info .user-link:hover {
+	cursor: pointer;
+	color: #8E9FB7;
+}
+.hover-info .date {
+	margin-left: 15%;
+    margin-top: -4%;
+    margin-bottom: 2%;
+}
+.hover-info .caption, .hover-info .user-info {
+    height: 44px;
+	overflow: scroll;
+}
+.hover-info .user-info {
+    text-align: center;
+}
+.likes-wrapper {
+	display: inline-block;
+    float: right;
+    margin-top: -13%;
+}
+.hover-info .likes-image {
+	color: white;
+    display: block;
+    float: left;
+    margin-left: -15%;
+    padding-right: 10%;
+    padding-top: 11%;
+}
+.hover-info .likes-num {
+	font-family: 'Titillium Web', sans-serif;
+    position: inherit;
+    float: left;
+}
+.user-info {
+	display: none;
+}
+.hover-sentiment {
+    display: none;
+    position: absolute;
+    margin-top: -17%;
+    margin-left: 2%;
+    font-size: 18px;
+}
+.title {
+    display: block;
+    margin: auto;
+    max-width: 39%;
+    margin-bottom: 2%;
+}
+.very-neg {
+    background: red;
+}
+.slight-neg {
+    background: #FF8080;
+}
+.neutral {
+    /*background:;*/
+}
+.slight-pos {
+    background: #80C080;
+}
+.very-pos {
+    background: green;
+}
+.load-more {
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+    bottom: 20px;
+    margin-left: 20%;
+    margin-top: 2%;
+    width: 20%;
+}
+.text-view {
+    font-family: 'Titillium Web', sans-serif;
+    color: #333;
+    width: 20%;
+    margin-top: -14px
+}
+.about {
+    font-family: 'Titillium Web', sans-serif;
+    color: #333;
+    width: 20%;
+    margin-top: -14px
+}

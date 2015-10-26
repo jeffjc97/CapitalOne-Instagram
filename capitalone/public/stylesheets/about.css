@@ -1,0 +1,35 @@
+.title {
+    display: block;
+    margin: auto;
+    max-width: 39%;
+    margin-bottom: 2%;
+}
+.picture-view {
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+    bottom: 20px;
+    margin-left: 30%;
+    margin-top: 2%;
+    width: 20%;
+}
+.text-view {
+    font-family: 'Titillium Web', sans-serif;
+    color: #333;
+    width: 20%;
+    margin-top: -14px
+}
+.title-info {
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    font-size: 45px; 
+}
+.subtitle-info {
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    font-size: 35px;
+}
+.info {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
