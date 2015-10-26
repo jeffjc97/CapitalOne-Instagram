@@ -6,4 +6,5 @@ In the image view, the most recent images are laid out in a grid. By hovering ov
 
 In the table view, the data is laid out in a simpler manner. All the data is still accessible, and a tally of the total number of positive, neutral, and negative posts is kept. A more specific description of the sentiment calculation is also shown. 
 
-See some screenshots here: http://imgur.com/a/NGRTz.
+See some screenshots here: http://imgur.com/a/NGRTz
+The site is also deployed at https://capitalone-instagram.herokuapp.com/
