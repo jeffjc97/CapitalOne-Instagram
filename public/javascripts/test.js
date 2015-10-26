@@ -49,25 +49,25 @@ function getInfo(param) {
 	var url = tag_url;
 	// if they load in more photos, we simply call the function with the added parameter
 	if (param != 0) {
-		console.log("param in next call", param);
+		// console.log("param in next call", param);
 		var param = "&max_tag_id=" + param;
 		url += param;
 	}
 	else {
-		console.log("initial");
+		// console.log("initial");
 	}
-	console.log("url", url)
+	// console.log("url", url)
 	$.ajax({
 		url: url,
 		type: 'GET',
 		dataType: 'jsonp',
 		success: function(returned) {
-			console.log(returned.data);
+			// console.log(returned.data);
 			var length = returned.data.length
 			var count = 0;
 			// console.log(returned.data[returned.data.length -1].id);
 			next = returned.pagination.next_max_id;
-			console.log("next", next);
+			// console.log("next", next);
 			returned.data.forEach(function(entry) {
 				count += 1;
 				$.ajax({

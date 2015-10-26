@@ -43,14 +43,14 @@ function getImages(param) {
 	var url = tag_url;
 	// if they load in more photos, we simply call the function with the added parameter
 	if (param != 0) {
-		console.log("param in next call", param);
+		// console.log("param in next call", param);
 		var param = "&max_tag_id=" + param;
 		url += param;
 	}
 	else {
 		console.log("initial");
 	}
-	console.log("url", url)
+	// console.log("url", url)
 	$.ajax({
 		url: url,
 		type: 'GET',
@@ -66,6 +66,13 @@ function getImages(param) {
 					dataType: 'jsonp',
 					success: function(returned2) {
 						var text = entry.caption.text;
+						var split = text.split(" ");
+						for (i=0; i<split.length; i++) {
+							if (split[i].charAt(0) == '#') {
+								split[i] = split[i].substr(1);
+							}
+						}
+						text = split.join(" ");
 						$.ajax({
 							url: '/sentiment',
 							type: 'GET',
@@ -73,6 +80,7 @@ function getImages(param) {
 							contentType: 'application/json',
 							data: {"text":text},
 							success: function(returned3) {
+								console.log(returned3);
 								// inserting the information into the correct places
 								clone = $('.photo-clone').clone();
 								clone.removeClass('photo-clone');
@@ -107,7 +115,6 @@ function getImages(param) {
 								});
 								
 								clone.find('.user-image').hover(function() {
-									console.log("???");
 									$(this).parent().find('.caption').hide();
 									$(this).parent().find('.user-info').fadeIn(250);
 								}, function() {
