@@ -78,5 +78,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+if (!module.parent) {
+  var port = process.env.PORT || 3000;
+  app.listen(port);
+  console.log('Express started on port 3000');
+}
 
 module.exports = app;
